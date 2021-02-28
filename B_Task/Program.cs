@@ -2,61 +2,67 @@
 
 namespace B_Task
 {
-    /// <summary>
-    /// Пользователь вводит 2 числа (X и Y). 
-    /// Определить какой четверти принадлежит точка с координатами (X,Y).
-    /// </summary>
     class Program
     {
         static void Main(string[] args)
         {
-            while(Console.ReadLine() != "q")
+            double a, b;
+            string ans;
+            Console.Write("Введите число a: ");
+            a = Convert.ToDouble(Console.ReadLine());
+            Console.Write("Введите число b: ");
+            b = Convert.ToDouble(Console.ReadLine());
+
+            if (a > 0)
             {
-                string firstInput;
-                string secondInput;
-
-                Console.WriteLine("Введиде два числа (X и Y) для того, чтобы " +
-                    "определить какой четверти принадлежит точка с координатами (X,Y)");
-
-                Console.WriteLine("Первое число (X):");
-                firstInput = Console.ReadLine();
-                double firstNumber = Convert.ToDouble(firstInput);
-
-                Console.WriteLine("Второе число (Y):");
-                secondInput = Console.ReadLine();
-                double secondNumber = Convert.ToDouble(secondInput);
-
-                if (firstNumber > 0)
+                if (b != 0)
                 {
-                    if (secondNumber > 0)
+                    if (b > 0)
                     {
-                        Console.WriteLine("Точка находится в I четверти.");
-                    }
-                    else if (secondNumber < 0)
-                    {
-                        Console.WriteLine("Точка находится в IV четверти.");
+                        ans = "1 четверть";
                     }
                     else
                     {
-                        Console.WriteLine("Точка находится на оси x");
+                        ans = "4 четверть";
                     }
-                }
-                else if (firstNumber == 0 && secondNumber == 0)
-                {
-                    Console.WriteLine("Точка находится в начале координат");
                 }
                 else
                 {
-                    if (secondNumber > 0)
-                    {
-                        Console.WriteLine("Точка находится в II четверти.");
-                    }
-                    else
-                    {
-                        Console.WriteLine("Точка находится в III четверти.");
-                    }
+                    ans = "На положительной части оси Х";
                 }
             }
+            else if (a < 0)
+            {
+                if (b > 0)
+                {
+                    ans = "2 четверть";
+                }
+                else if (b < 0)
+                {
+                    ans = "3 четверть";
+                }
+                else
+                {
+                    ans = "На отрицательной части оси Х";
+                }
+            }
+            else
+            {
+                if (b > 0)
+                {
+                    ans = "На положительной части оси Y";
+                }
+                else if (b < 0)
+                {
+                    ans = "На отрицательной части оси Y";
+                }
+                else
+                {
+                    ans = "Начало координат";
+                }
+            }
+
+            Console.WriteLine(ans);
         }
     }
 }
