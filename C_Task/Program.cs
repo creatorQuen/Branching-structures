@@ -11,81 +11,35 @@ namespace C_Task
         {
            while(Console.ReadLine() != "q")
            {
-                string firstInput;
-                string secondInput;
-                string thirdInput;
+                double a, b, c, temp;
+                Console.Write("Введите число a: ");
+                a = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Введите число b: ");
+                b = Convert.ToDouble(Console.ReadLine());
+                Console.Write("Введите число c: ");
+                c = Convert.ToDouble(Console.ReadLine());
 
-                Console.WriteLine("Первое число (A):");
-                firstInput = Console.ReadLine();
-                double firstNumber = Convert.ToDouble(firstInput);
-
-                Console.WriteLine("Второе число (B):");
-                secondInput = Console.ReadLine();
-                double secondNumber = Convert.ToDouble(secondInput);
-
-                Console.WriteLine("Третье число (C):");
-                thirdInput = Console.ReadLine();
-                double thirdNumber = Convert.ToDouble(thirdInput);
-
-                if ((firstNumber > secondNumber) && (firstNumber > thirdNumber))
+                if (a > b)
                 {
-                    Console.WriteLine("");
-                    Console.WriteLine($"Последовательность в порядке возрастания:");
-
-                    if (secondNumber > thirdNumber)
-                    {
-
-                        Console.WriteLine($"{thirdNumber}");
-                        Console.WriteLine($"{secondNumber}");
-                        Console.WriteLine($"{firstNumber}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{secondNumber}");
-                        Console.WriteLine($"{thirdNumber}");
-                        Console.WriteLine($"{firstNumber}");
-                    }
+                    temp = a;
+                    a = b;
+                    b = temp;
                 }
-                else if ((secondNumber > firstNumber) && (secondNumber > thirdNumber))
+                if (b > c)
                 {
-                    Console.WriteLine("");
-                    Console.WriteLine($"Последовательность в порядке возрастания:");
-
-
-                    if (firstNumber > thirdNumber)
-                    {
-
-                        Console.WriteLine($"{thirdNumber}");
-                        Console.WriteLine($"{firstNumber}");
-                        Console.WriteLine($"{secondNumber}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{firstNumber}");
-                        Console.WriteLine($"{thirdNumber}");
-                        Console.WriteLine($"{secondNumber}");
-                    }
+                    temp = b;
+                    b = c;
+                    c = temp;
                 }
-                else if ((thirdNumber > firstNumber) && (thirdNumber > secondNumber))
+                if (a > b)
                 {
-                    Console.WriteLine("");
-                    Console.WriteLine($"Последовательность в порядке возрастания:");
-
-                    if (firstNumber > secondNumber)
-                    {
-
-                        Console.WriteLine($"{secondNumber}");
-                        Console.WriteLine($"{firstNumber}");
-                        Console.WriteLine($"{thirdNumber}");
-                    }
-                    else
-                    {
-                        Console.WriteLine($"{firstNumber}");
-                        Console.WriteLine($"{secondNumber}");
-                        Console.WriteLine($"{thirdNumber}");
-                    }
+                    temp = a;
+                    a = b;
+                    b = temp;
                 }
-            }
+
+                Console.WriteLine("Ответ: " + a + " " + b + " " + c);
+           }
 
         }
     }
